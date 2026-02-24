@@ -1,0 +1,81 @@
+shop item:
+image: string
+cost: number (optional)
+currency: string (optional)
+amount: number (optional)
+imageColour: string (optional)
+canBuy: boolean (optional)
+isSelected: boolean (optional)
+buyButtonText: string | CustomTextStyling (optional)
+customTitle: string | CustomTextStyling (optional)
+description: string | CustomTextStyling (optional)
+onBoughtMessage: string | CustomTextStyling (optional)
+redDot: boolean (optional)
+forceRemoveRedDot: boolean (optional)
+badge: { text: string | CustomTextStyling; type: "new" | "lucky" } (optional)
+userInput: ShopItemUserInput (optional)
+sell: boolean (optional)
+sortPriority: number (optional)
+hidden: boolean (optional)
+
+Reference
+category ( all optional)
+autoSelectCategory: boolean
+customTitle: string
+redDot: boolean
+forceRemoveRedDot: boolean
+sortPriority: number
+description: string | CustomTextStyling
+
+Reference
+Added shop api methods for use in code blocks and world code
+api.createShopItem
+api.updateShopItem
+api.deleteShopItem
+api.configureShopCategory
+api.createShopItemForPlayer
+api.updateShopItemForPlayer
+api.resetShopItemForPlayer
+api.configureShopCategoryForPlayer
+and a new callback onPlayerBoughtShopItem
+
+
+api.createShopItem(myId, "Name", {
+  image: "Dirt",
+  cost: 1500,
+  currency: "Gold Coin",
+  amount: 1,
+  imageColour: "#FF4500",
+  canBuy: true,
+  isSelected: false,
+  buyButtonText: "Purchase Now",
+  customTitle: "Flaming Dragon Sword",
+  description: "A legendary sword engulfed in eternal flames.",
+  onBoughtMessage: "You have successfully acquired the Flaming Dragon Sword!",
+  redDot: true,
+  forceRemoveRedDot: false,
+  userInput: {
+    type: "text",
+  },
+  sell: false,
+  sortPriority: 10,
+  hidden: false
+})
+
+
+api.createShopItem("TESTCCCCC", "Fruit Choice no 2", {image: "spawnicon.png", imageColour: "springgreen", cost: 0,
+  currency: "Gold Coin",
+  amount: 10,
+  customTitle : "Fruit Choice Custom 2",
+  onBoughtMessage : "Does this work",
+  description : "Banana or no banana",
+  sell : false,
+userInput : {type: "dropdown", dropdownOptions: ["Banana", "Not Banana"]}, buyButtonText: "Fruit me!"})
+
+
+api.configureShopCategory("TESTCCCCC", {autoSelectCategory : true, customTitle : "CUSTOM TITLE", redDot: true, sortPriority: 1000})
+
+
+api.createShopItem("classicGame:utilities", "Ranked Skywars", {image: "../../games/bedwars_4v4/bloxd_ranked_bedwars_thumbnail_small.jpg", imageColour: "springgreen"}
+)
+
